@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "600b412bb3632754ac9b922a740ffcd5",
+    "revision": "2af2cca4508311716f3e09ddf18086ce",
     "url": "/nawatend/my_training_website/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nawatend/my_training_website/static/css/2.18fb2ca0.chunk.css"
   },
   {
-    "revision": "6e2bfd6781ea7a8920ab",
+    "revision": "b8af3fa6d57a6db6c3b0",
     "url": "/nawatend/my_training_website/static/css/main.cbdf4783.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nawatend/my_training_website/static/js/2.2ef691d4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6e2bfd6781ea7a8920ab",
-    "url": "/nawatend/my_training_website/static/js/main.d783da32.chunk.js"
+    "revision": "b8af3fa6d57a6db6c3b0",
+    "url": "/nawatend/my_training_website/static/js/main.8fb085ff.chunk.js"
   },
   {
     "revision": "79c7593f72514f6c60ad",
