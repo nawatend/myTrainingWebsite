@@ -1,15 +1,14 @@
 {
+  "homepage": "https://github.com/nawatend/my_training_website/",
   "name": "react-material-dashboard",
-  "author": "DeviasIO",
-  "email": "contact@devias.io",
-  "licence": "MIT",
-  "version": "0.3.0",
   "private": false,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,6 +34,7 @@
     "cloudinary-core": "^2.8.2",
     "cloudinary-react": "^1.4.0",
     "clsx": "^1.0.4",
+    "gh-pages": "^2.2.0",
     "history": "^4.9.0",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",

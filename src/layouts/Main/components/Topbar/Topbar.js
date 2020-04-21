@@ -43,7 +43,7 @@ const Topbar = props => {
         <RouterLink to="/">
           <img
             alt="Logo"
-            src="/images/logos/logo--white.svg"
+            src={process.env.PUBLIC_URL + `/images/logos/logo--white.svg`}
           />
         </RouterLink>
         <div className={classes.flexGrow} />
