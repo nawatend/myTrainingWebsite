@@ -27,7 +27,7 @@ export default class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <Router history={browserHistory} basename={process.env.PUBLIC_URL}>
+        <Router history={browserHistory}>
           <Routes />
         </Router>
       </ThemeProvider>
