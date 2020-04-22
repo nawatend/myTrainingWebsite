@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/nawatend/my_training_website/precache-manifest.35ac02432f67ec2d242fe8856ae230d7.js"
+  "/nawatend/my_training_website/precache-manifest.f3908ddbeb415c41135a98bd7b803c59.js"
 );
 
 self.addEventListener('message', (event) => {
