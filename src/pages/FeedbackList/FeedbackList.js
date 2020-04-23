@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/styles'
-
-import { UsersToolbar, UsersTable } from './components'
+import React, { useEffect, useState } from 'react'
+import { FeedbackService, TrainerService } from '../../services/api'
+//jwt authen
+import { getTrainerIdFromJWT } from '../../utils/jwt'
+import { FeedbacksTable, FeedbacksToolbar } from './components'
 import mockData from './data'
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,19 +17,42 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const UserList = () => {
+const FeedbackList = () => {
   const classes = useStyles()
 
-  const [users] = useState(mockData)
+  const [Feedbacks] = useState(mockData)
+
+  const [feedbacks, setFeedbacks] = useState([])
+  const [trainerId, setTrainerId] = useState()
+
+  useEffect(() => {
+
+    TrainerService.getTrainerByUserId(getTrainerIdFromJWT())
+      .then((res) => {
+        console.log("TrainerId")
+        setTrainerId(res.id)
+      }).catch((e) => console.log('trainer not found'))
+  }, [trainerId])
+
+
+  useEffect(() => {
+
+    FeedbackService.getFeedbacksByTrainer(trainerId)
+      .then((res) => {
+        console.log(res)
+        setFeedbacks(res)
+      })
+
+  }, [trainerId])
 
   return (
     <div className={classes.root}>
-      <UsersToolbar />
+      <FeedbacksToolbar />
       <div className={classes.content}>
-        <UsersTable users={users} />
+        <FeedbacksTable Feedbacks={feedbacks} />
       </div>
     </div>
   )
 }
 
-export default UserList
+export default FeedbackList

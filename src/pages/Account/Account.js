@@ -1,8 +1,8 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
+import React from 'react';
+import { AccountDetails, AccountProfile } from './components';
 
-import { AccountProfile, AccountDetails } from './components';
 
 const useStyles = makeStyles(theme => ({
   root: {

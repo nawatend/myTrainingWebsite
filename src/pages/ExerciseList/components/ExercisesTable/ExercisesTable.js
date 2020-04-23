@@ -1,26 +1,12 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Card, CardActions, CardContent, Table, TableBody, TableCell, TableHead, TablePagination, TableRow, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Avatar,
-  Checkbox,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Typography,
-  TablePagination
-} from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
-import { getInitials } from 'helpers';
 import { CloudinaryContext, Image } from "cloudinary-react";
+import clsx from 'clsx';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {},

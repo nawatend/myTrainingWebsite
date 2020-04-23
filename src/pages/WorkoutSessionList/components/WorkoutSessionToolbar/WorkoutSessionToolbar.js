@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/styles';
 import { Button } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/styles';
+import clsx from 'clsx';
 import { SearchInput } from 'components';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {},

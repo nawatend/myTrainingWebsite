@@ -1,22 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { Link as RouterLink, withRouter } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import validate from 'validate.js'
-import { makeStyles } from '@material-ui/styles'
-import {
-  Grid,
-  Button,
-  IconButton,
-  TextField,
-  Link,
-  Typography
-} from '@material-ui/core'
+import { Button, Grid, IconButton, Link, TextField, Typography } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-
+import { makeStyles } from '@material-ui/styles'
 import { Facebook as FacebookIcon, Google as GoogleIcon } from 'icons'
+import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import { Link as RouterLink, withRouter } from 'react-router-dom'
+import validate from 'validate.js'
 //api services
-import { UserService, AuthService } from '../../services/api'
+import { AuthService } from '../../services/api'
 import checkRole from '../../utils/checkRole'
+
 
 const schema = {
   email: {
@@ -53,10 +46,12 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundImage: 'url(/images/auth.jpg)',
+    backgroundImage: 'url(https://source.unsplash.com/1600x900/?sport)',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
+    backgroundPosition: 'center',
+    fontWeight: '900',
+    
   },
   quoteInner: {
     textAlign: 'center',
@@ -64,7 +59,7 @@ const useStyles = makeStyles(theme => ({
   },
   quoteText: {
     color: theme.palette.white,
-    fontWeight: 300
+    fontWeight: 500
   },
   name: {
     marginTop: theme.spacing(3),
@@ -215,7 +210,7 @@ const SignIn = props => {
                 className={classes.quoteText}
                 variant="h1"
               >
-                HellaLouuya Nawang is here to save the day!
+                FIND YOUR GREATNESS!
               </Typography>
               <div className={classes.person}>
                 <Typography

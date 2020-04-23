@@ -1,25 +1,12 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Avatar, Button, Card, CardActions, CardContent, Table, TableBody, TableCell, TableHead, TablePagination, TableRow, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Avatar,
-  Checkbox,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Typography,
-  TablePagination
-} from '@material-ui/core';
-
+import clsx from 'clsx';
 import { getInitials } from 'helpers';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -41,47 +28,47 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const UsersTable = props => {
-  const { className, users, ...rest } = props;
+const FeedbacksTable = props => {
+  const { className, Feedbacks, ...rest } = props;
 
   const classes = useStyles();
 
-  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [selectedFeedbacks, setSelectedFeedbacks] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [page, setPage] = useState(0);
 
   const handleSelectAll = event => {
-    const { users } = props;
+    const { Feedbacks } = props;
 
-    let selectedUsers;
+    let selectedFeedbacks;
 
     if (event.target.checked) {
-      selectedUsers = users.map(user => user.id);
+      selectedFeedbacks = Feedbacks.map(user => user.id);
     } else {
-      selectedUsers = [];
+      selectedFeedbacks = [];
     }
 
-    setSelectedUsers(selectedUsers);
+    setSelectedFeedbacks(selectedFeedbacks);
   };
 
   const handleSelectOne = (event, id) => {
-    const selectedIndex = selectedUsers.indexOf(id);
-    let newSelectedUsers = [];
+    const selectedIndex = selectedFeedbacks.indexOf(id);
+    let newSelectedFeedbacks = [];
 
     if (selectedIndex === -1) {
-      newSelectedUsers = newSelectedUsers.concat(selectedUsers, id);
+      newSelectedFeedbacks = newSelectedFeedbacks.concat(selectedFeedbacks, id);
     } else if (selectedIndex === 0) {
-      newSelectedUsers = newSelectedUsers.concat(selectedUsers.slice(1));
-    } else if (selectedIndex === selectedUsers.length - 1) {
-      newSelectedUsers = newSelectedUsers.concat(selectedUsers.slice(0, -1));
+      newSelectedFeedbacks = newSelectedFeedbacks.concat(selectedFeedbacks.slice(1));
+    } else if (selectedIndex === selectedFeedbacks.length - 1) {
+      newSelectedFeedbacks = newSelectedFeedbacks.concat(selectedFeedbacks.slice(0, -1));
     } else if (selectedIndex > 0) {
-      newSelectedUsers = newSelectedUsers.concat(
-        selectedUsers.slice(0, selectedIndex),
-        selectedUsers.slice(selectedIndex + 1)
+      newSelectedFeedbacks = newSelectedFeedbacks.concat(
+        selectedFeedbacks.slice(0, selectedIndex),
+        selectedFeedbacks.slice(selectedIndex + 1)
       );
     }
 
-    setSelectedUsers(newSelectedUsers);
+    setSelectedFeedbacks(newSelectedFeedbacks);
   };
 
   const handlePageChange = (event, page) => {
@@ -103,60 +90,50 @@ const UsersTable = props => {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell padding="checkbox">
-                    <Checkbox
-                      checked={selectedUsers.length === users.length}
-                      color="primary"
-                      indeterminate={
-                        selectedUsers.length > 0 &&
-                        selectedUsers.length < users.length
-                      }
-                      onChange={handleSelectAll}
-                    />
-                  </TableCell>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Email</TableCell>
-                  <TableCell>Location</TableCell>
-                  <TableCell>Phone</TableCell>
+                  <TableCell>Sporter name</TableCell>
+                  <TableCell>Workout session title</TableCell>
+                  <TableCell>Rate</TableCell>
+                  <TableCell>Message</TableCell>
                   <TableCell>Registration date</TableCell>
+                  <TableCell>Confirm</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {users.slice(0, rowsPerPage).map(user => (
+                {Feedbacks.slice(0, rowsPerPage).map(feedback => (
                   <TableRow
                     className={classes.tableRow}
                     hover
-                    key={user.id}
-                    onClick={()=> console.log('clicked ' + user.id)}
-                    selected={selectedUsers.indexOf(user.id) !== -1}
+                    key={feedback.id}
+                    onClick={() => console.log('clicked ' + feedback.id)}
+                    selected={selectedFeedbacks.indexOf(feedback.id) !== -1}
                   >
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        checked={selectedUsers.indexOf(user.id) !== -1}
-                        color="primary"
-                        onChange={event => handleSelectOne(event, user.id)}
-                        value="true"
-                      />
-                    </TableCell>
                     <TableCell>
                       <div className={classes.nameContainer}>
                         <Avatar
                           className={classes.avatar}
-                          src={user.avatarUrl}
+                          src={`http://res.cloudinary.com/filesmytraining/image/upload/f_auto,q_auto/v1/${feedback.rate.sporter.user.imageName}`}
                         >
-                          {getInitials(user.name)}
+                          {getInitials(feedback.rate.sporter.user.fullName)}
                         </Avatar>
-                        <Typography variant="body1">{user.name}</Typography>
+                        <Typography variant="body1">{feedback.rate.sporter.user.fullName}</Typography>
                       </div>
                     </TableCell>
-                    <TableCell>{user.email}</TableCell>
+                    <TableCell>{feedback.rate.workoutSession.title}</TableCell>
                     <TableCell>
-                      {user.address.city}, {user.address.state},{' '}
-                      {user.address.country}
+                      {feedback.rate.rate} stars
                     </TableCell>
-                    <TableCell>{user.phone}</TableCell>
+                    <TableCell>{feedback.message}</TableCell>
                     <TableCell>
-                      {moment(user.createdAt).format('DD/MM/YYYY')}
+                      {moment(feedback.createdAt).format('DD/MM/YYYY')}
+                    </TableCell>
+
+                    <TableCell><Button
+                      color="primary"
+                      variant="contained"
+                      onClick={() => { console.log("read") }}
+                    >
+                      READ
+                  </Button>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -168,7 +145,7 @@ const UsersTable = props => {
       <CardActions className={classes.actions}>
         <TablePagination
           component="div"
-          count={users.length}
+          count={Feedbacks.length}
           onChangePage={handlePageChange}
           onChangeRowsPerPage={handleRowsPerPageChange}
           page={page}
@@ -180,9 +157,9 @@ const UsersTable = props => {
   );
 };
 
-UsersTable.propTypes = {
+FeedbacksTable.propTypes = {
   className: PropTypes.string,
-  users: PropTypes.array.isRequired
+  Feedbacks: PropTypes.array.isRequired
 };
 
-export default UsersTable;
+export default FeedbacksTable;

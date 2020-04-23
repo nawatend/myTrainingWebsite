@@ -1,10 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import clsx from 'clsx'
+import { Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import { Button } from '@material-ui/core'
-
+import clsx from 'clsx'
 import { SearchInput } from 'components'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -28,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const UsersToolbar = props => {
+const FeedbacksToolbar = props => {
   const { className, ...rest } = props
 
   const classes = useStyles()
@@ -38,29 +37,27 @@ const UsersToolbar = props => {
       {...rest}
       className={clsx(classes.root, className)}
     >
-      <div className={classes.row}>
-        <span className={classes.spacer} />
-        <Button className={classes.importButton}>Import</Button>
-        <Button className={classes.exportButton}>Export</Button>
-        <Button
-          color="primary"
-          variant="contained"
-        >
-          Add user
-        </Button>
-      </div>
+       <span className={classes.spacer} />
+      <Typography
+        className={classes.title}
+        variant="h3"
+      >
+        Feedbacks
+                      </Typography>
+                      
+      
       <div className={classes.row}>
         <SearchInput
           className={classes.searchInput}
-          placeholder="Search user"
+          placeholder="Search by name, rating"
         />
       </div>
     </div>
   )
 }
 
-UsersToolbar.propTypes = {
+FeedbacksToolbar.propTypes = {
   className: PropTypes.string
 }
 
-export default UsersToolbar
+export default FeedbacksToolbar

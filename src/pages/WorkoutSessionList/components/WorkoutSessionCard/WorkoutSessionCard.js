@@ -1,19 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/styles';
-import {
-  Card,
-  CardContent,
-  CardActions,
-  Typography,
-  Grid,
-  Divider
-} from '@material-ui/core';
+import { Card, CardActions, CardContent, Divider, Grid, Typography } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import GetAppIcon from '@material-ui/icons/GetApp';
-import moment from 'moment';
+import { makeStyles } from '@material-ui/styles';
 import { CloudinaryContext, Image } from "cloudinary-react";
+import clsx from 'clsx';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({

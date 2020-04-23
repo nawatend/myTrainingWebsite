@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Link as RouterLink, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import validate from 'validate.js';
-import { makeStyles } from '@material-ui/styles';
-import {
-  Grid,
-  Button,
-  IconButton,
-  TextField,
-  Link,
-  FormHelperText,
-  Checkbox,
-  Typography
-} from '@material-ui/core';
+import { Button, Checkbox, FormHelperText, Grid, IconButton, Link, TextField, Typography } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-
+import { makeStyles } from '@material-ui/styles';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { Link as RouterLink, withRouter } from 'react-router-dom';
+import validate from 'validate.js';
 //api services
-import { UserService } from '../../services/api'
+import { UserService } from '../../services/api';
+
 
 const schema = {
   fullName: {

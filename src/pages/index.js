@@ -8,6 +8,7 @@ export { default as SporterList } from './SporterList'
 export { default as SporterListByTrainer } from './SporterListByTrainer'
 export { default as SporterDetail } from './SporterDetail/SporterDetail'
 
+export { default as FeedbackList } from './FeedbackList'
 
 export { default as ExerciseList } from './ExerciseList'
 export { default as ExerciseEdit } from './ExerciseEdit/ExerciseEdit'

@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
-import { Link as RouterLink, Redirect, useHistory } from 'react-router-dom';
+import { AppBar, Hidden, IconButton, Toolbar } from '@material-ui/core';
+import InputIcon from '@material-ui/icons/Input';
+import MenuIcon from '@material-ui/icons/Menu';
+import { makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
-import { AppBar, Toolbar, Badge, Hidden, IconButton } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
-import InputIcon from '@material-ui/icons/Input';
-import {  AuthService } from '../../../../services/api'
+import React, { useState } from 'react';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
+import { AuthService } from '../../../../services/api';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -48,15 +47,7 @@ const Topbar = props => {
         </RouterLink>
         <div className={classes.flexGrow} />
         <Hidden mdDown>
-          <IconButton color="inherit">
-            <Badge
-              badgeContent={notifications.length}
-              color="primary"
-              variant="dot"
-            >
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
+
           <IconButton
             className={classes.signOutButton}
             color="inherit"

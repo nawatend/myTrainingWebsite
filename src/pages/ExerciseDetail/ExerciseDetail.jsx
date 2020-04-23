@@ -1,28 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Link as RouterLink, withRouter, useHistory, Redirect, useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import validate from 'validate.js';
-import { makeStyles } from '@material-ui/styles';
-import {
-  Grid,
-  Button,
-  IconButton,
-  TextField,
-  Link,
-  FormHelperText,
-  Checkbox,
-  Typography,
-  Divider
-} from '@material-ui/core';
+import { Button, Divider, Grid, IconButton, Typography } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { CloudinaryContext, Image, Video, Transformation } from "cloudinary-react";
+import { makeStyles } from '@material-ui/styles';
+import { CloudinaryContext, Image, Video } from "cloudinary-react";
 import moment from 'moment';
-
+import React, { useEffect, useState } from 'react';
+import { Redirect, useParams, withRouter } from 'react-router-dom';
 //api
-import { ExerciseBaseService, TrainerService } from '../../services/api'
+import { ExerciseBaseService } from '../../services/api';
 
-//jwt authen
-import { isJWTValid, getTrainerIdFromJWT } from '../../utils/jwt'
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -132,37 +118,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const schema = {
-  title: {
-    presence: { allowEmpty: false, message: 'is required' },
-    length: {
-      maximum: 32
-    }
-  },
-  type: {
-    presence: { allowEmpty: false, message: 'is required' },
-    length: {
-      maximum: 32
-    }
-  },
-  description: {
-    presence: { allowEmpty: false, message: 'is required' },
-    length: {
-      maximum: 64
-    }
-  },
-
-  // password: {
-  //     presence: { allowEmpty: false, message: 'is required' },
-  //     length: {
-  //         maximum: 128
-  //     }
-  // },
-  // policy: {
-  //     presence: { allowEmpty: false, message: 'is required' },
-  //     checked: true
-  // }
-};
 
 let ExerciseDetail = (props) => {
   const { history } = props;

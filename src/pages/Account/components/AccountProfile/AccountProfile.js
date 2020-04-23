@@ -1,19 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { Avatar, Button, Card, CardActions, CardContent, Divider, LinearProgress, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
+import { CloudinaryContext, Image } from "cloudinary-react";
 import clsx from 'clsx';
 import moment from 'moment';
-import { makeStyles } from '@material-ui/styles';
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Avatar,
-  Typography,
-  Divider,
-  Button,
-  LinearProgress
-} from '@material-ui/core';
-import { CloudinaryContext, Image } from "cloudinary-react";
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const useStyles = makeStyles(theme => ({
   root: {},

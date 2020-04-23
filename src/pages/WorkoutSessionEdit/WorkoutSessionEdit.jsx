@@ -1,30 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link as RouterLink, withRouter, Redirect, useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import validate from 'validate.js';
-import { makeStyles } from '@material-ui/styles';
-import {
-    Grid,
-    Button,
-    IconButton,
-    TextField,
-    Link,
-    FormHelperText,
-    Checkbox,
-    Typography
-} from '@material-ui/core';
+import { Button, Grid, IconButton, TextField, Typography } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ImageUpload from '../../components/UploadFiles/ImageUpload'
-import VideoUpload from '../../components/UploadFiles/VideoUpload'
-import AddExerciseList from './components/AddExerciseList'
+import { makeStyles } from '@material-ui/styles';
+import React, { useEffect, useState } from 'react';
+import { useParams, withRouter } from 'react-router-dom';
+import validate from 'validate.js';
+import ImageUpload from '../../components/UploadFiles/ImageUpload';
 //import MaterialTable from 'material-table';
 //api
-import { WorkoutSessionService, ExerciseFullService } from '../../services/api'
-//api
-import { ExerciseBaseService, TrainerService } from '../../services/api'
-
+import { ExerciseBaseService, ExerciseFullService, TrainerService, WorkoutSessionService } from '../../services/api';
 //jwt authen
-import { isJWTValid, getTrainerIdFromJWT } from '../../utils/jwt'
+import { getTrainerIdFromJWT } from '../../utils/jwt';
+import AddExerciseList from './components/AddExerciseList';
+
 
 
 const useStyles = makeStyles(theme => ({

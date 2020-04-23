@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/styles';
-import { IconButton, Grid, Typography } from '@material-ui/core';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { Grid, IconButton, Typography } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-
-import { WorkoutProgramToolbar, WorkoutProgramCard } from './components';
-import mockData from './data';
-
-
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import { makeStyles } from '@material-ui/styles';
+import React, { useEffect, useState } from 'react';
 //api
-import { WorkoutProgramService, TrainerService } from '../../services/api'
+import { TrainerService, WorkoutProgramService } from '../../services/api';
 //jwt authen
-import { isJWTValid, getTrainerIdFromJWT } from '../../utils/jwt'
+import { getTrainerIdFromJWT } from '../../utils/jwt';
+import { WorkoutProgramCard, WorkoutProgramToolbar } from './components';
+
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/styles'
-
-import { SportersToolbar, SportersTable } from './components'
-import mockData from './data'
-
+import React, { useEffect, useState } from 'react'
 //api
 import { SporterService, TrainerService } from '../../services/api'
-//jwt authen
-import { isJWTValid, getTrainerIdFromJWT } from '../../utils/jwt'
 import { filterArrayObjectByTwoKeys } from '../../utils/filter'
+//jwt authen
+import { getTrainerIdFromJWT } from '../../utils/jwt'
+import { SportersTable, SportersToolbar } from './components'
+
+
 
 
 const useStyles = makeStyles(theme => ({

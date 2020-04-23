@@ -1,21 +1,17 @@
-import React from 'react';
+import { Divider, Drawer } from '@material-ui/core';
+import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import FeedbackIcon from '@material-ui/icons/Feedback';
+import LockOpenIcon from '@material-ui/icons/LockOpen';
+import PeopleIcon from '@material-ui/icons/People';
+import { makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
-import { Divider, Drawer } from '@material-ui/core';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import PeopleIcon from '@material-ui/icons/People';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import TextFieldsIcon from '@material-ui/icons/TextFields';
-import ImageIcon from '@material-ui/icons/Image';
-import AccountBoxIcon from '@material-ui/icons/AccountBox';
-import SettingsIcon from '@material-ui/icons/Settings';
-import LockOpenIcon from '@material-ui/icons/LockOpen';
-import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
-import AssignmentIcon from '@material-ui/icons/Assignment';
-import FeedbackIcon from '@material-ui/icons/Feedback';
-
+import React from 'react';
 import { Profile, SidebarNav } from './components';
+
 
 const useStyles = makeStyles(theme => ({
   drawer: {

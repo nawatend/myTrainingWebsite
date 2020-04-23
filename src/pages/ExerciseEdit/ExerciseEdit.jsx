@@ -1,27 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link as RouterLink, withRouter, useHistory, Redirect, useParams } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import validate from 'validate.js';
-import { makeStyles } from '@material-ui/styles';
-import {
-    Grid,
-    Button,
-    IconButton,
-    TextField,
-    Link,
-    FormHelperText,
-    Checkbox,
-    Typography
-} from '@material-ui/core';
+import { Button, Grid, IconButton, TextField, Typography } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ImageUpload from '../../components/UploadFiles/ImageUpload'
-import VideoUpload from '../../components/UploadFiles/VideoUpload'
-
+import { makeStyles } from '@material-ui/styles';
+import React, { useEffect, useState } from 'react';
+import { Redirect, useParams, withRouter } from 'react-router-dom';
+import validate from 'validate.js';
+import ImageUpload from '../../components/UploadFiles/ImageUpload';
+import VideoUpload from '../../components/UploadFiles/VideoUpload';
 //api
-import { ExerciseBaseService, TrainerService } from '../../services/api'
-
+import { ExerciseBaseService, TrainerService } from '../../services/api';
 //jwt authen
-import { isJWTValid, getTrainerIdFromJWT } from '../../utils/jwt'
+import { getTrainerIdFromJWT, isJWTValid } from '../../utils/jwt';
+
+
 
 const useStyles = makeStyles(theme => ({
     root: {

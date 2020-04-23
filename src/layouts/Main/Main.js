@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/styles';
 import { useMediaQuery } from '@material-ui/core';
-
-import { Sidebar, Topbar, Footer } from './components';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import clsx from 'clsx';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-
 //jwt authen
-import { isJWTValid, getTrainerIdFromJWT } from '../../utils/jwt'
+import { isJWTValid } from '../../utils/jwt';
+import { Sidebar, Topbar } from './components';
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {

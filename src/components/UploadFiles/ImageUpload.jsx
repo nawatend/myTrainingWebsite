@@ -1,22 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import moment from 'moment';
+import { Button, Grid, LinearProgress } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import {
-  Grid,
-  Card,
-  CardActions,
-  CardContent,
-  Avatar,
-  Typography,
-  Divider,
-  Button,
-  LinearProgress
-} from '@material-ui/core';
-
-import { fetchPhotos, openUploadWidget } from "../../services/cloudinary";
 import { CloudinaryContext, Image } from "cloudinary-react";
+import React, { useEffect, useState } from 'react';
+import { openUploadWidget } from "../../services/cloudinary";
+
 
 const useStyles = makeStyles(theme => ({
   root: {},

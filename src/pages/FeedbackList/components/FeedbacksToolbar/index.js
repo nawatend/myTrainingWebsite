@@ -1,1 +1,1 @@
-export { default } from './SportersToolbar';
+export { default } from './FeedbacksToolbar';

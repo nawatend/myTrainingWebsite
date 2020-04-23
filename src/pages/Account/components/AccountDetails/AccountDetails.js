@@ -1,23 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { Button, Card, CardActions, CardContent, CardHeader, Divider, Grid, TextField, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CardActions,
-  Divider,
-  Grid,
-  Button,
-  TextField,
-  Typography
-} from '@material-ui/core';
-
+import React, { useEffect, useState } from 'react';
 //api
-import { ExerciseBaseService, TrainerService } from '../../../../services/api'
+import { TrainerService } from '../../../../services/api';
 //jwt authen
-import { isJWTValid, getTrainerIdFromJWT } from '../../../../utils/jwt'
+import { getTrainerIdFromJWT } from '../../../../utils/jwt';
+
 
 const useStyles = makeStyles(() => ({
   root: {}

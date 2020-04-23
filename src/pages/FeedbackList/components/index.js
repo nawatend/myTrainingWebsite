@@ -1,2 +1,2 @@
-export { default as UsersTable } from './FeedbacksTable'
-export { default as UsersToolbar } from './FeedbacksToolbar'
+export { default as FeedbacksTable } from './FeedbacksTable'
+export { default as FeedbacksToolbar } from './FeedbacksToolbar'
