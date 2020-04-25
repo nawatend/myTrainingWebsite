@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { SearchInput } from 'components'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -37,20 +38,37 @@ const FeedbacksToolbar = props => {
       {...rest}
       className={clsx(classes.root, className)}
     >
-       <span className={classes.spacer} />
+      <span className={classes.spacer} />
       <Typography
         className={classes.title}
         variant="h3"
       >
         Feedbacks
                       </Typography>
-                      
-      
+
+
       <div className={classes.row}>
         <SearchInput
           className={classes.searchInput}
-          placeholder="Search by name, rating"
+          placeholder="Search by rate, confirm as seen"
+          onChange={props.searchBarOnChange}
         />
+        <Checkbox
+
+          name="checkedF"
+          onChange={e => {
+            if (e.target.checked === true) {
+              props.handleCheck()
+            }else{
+              props.reset()
+            }
+          }}
+
+        /><Typography
+          variant="body1"
+        >
+          Not Confirmed Only
+                        </Typography>
       </div>
     </div>
   )

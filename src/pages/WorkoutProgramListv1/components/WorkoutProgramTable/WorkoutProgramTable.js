@@ -96,7 +96,6 @@ const WorkoutProgramTable = props => {
                   <TableCell>ID</TableCell>
                   <TableCell>Title</TableCell>
                   <TableCell>Type</TableCell>
-                  <TableCell>Assigned To</TableCell>
                   <TableCell>Created At</TableCell>
                 </TableRow>
               </TableHead>
@@ -125,7 +124,6 @@ const WorkoutProgramTable = props => {
                       </div>
                     </TableCell>
                     <TableCell>{workoutProgram.type}</TableCell>
-                    <TableCell>Nawang Tendar</TableCell>
                     <TableCell>
                       {moment(workoutProgram.createdAt).format('DD/MM/YYYY')}
                     </TableCell>

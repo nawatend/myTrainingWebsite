@@ -23,8 +23,11 @@ class Feedback {
 
 
   static async createFeedback(body) {
-    console.log(body)
     return axiosInstance.post(`/feedbacks`, body)
+  }
+
+  static async confirmFeedback(body) {
+    return axiosInstance.post(`/feedbacks/confirm`, body)
   }
 
   // static async updateFeedback(id, body) {

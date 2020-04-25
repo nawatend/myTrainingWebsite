@@ -45,7 +45,7 @@ const WorkoutSessionList = () => {
     if (trainerId !== null) {
       WorkoutSessionService.getWorkoutSessionsByTrainer(trainerId)
         .then((res) => {
-          setWorkoutSessions(res)
+          setWorkoutSessions(res.reverse())
         }).catch((e) => console.log('workout session not found'))
     }
   }, [trainerId])

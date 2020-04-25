@@ -90,12 +90,12 @@ const FeedbacksTable = props => {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Sporter name</TableCell>
-                  <TableCell>Workout session title</TableCell>
+                  <TableCell>Sporter</TableCell>
+                  <TableCell>Workout Session</TableCell>
                   <TableCell>Rate</TableCell>
                   <TableCell>Message</TableCell>
-                  <TableCell>Registration date</TableCell>
-                  <TableCell>Confirm</TableCell>
+                  <TableCell>Made on</TableCell>
+                  <TableCell>Seen?</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -127,13 +127,21 @@ const FeedbacksTable = props => {
                       {moment(feedback.createdAt).format('DD/MM/YYYY')}
                     </TableCell>
 
-                    <TableCell><Button
-                      color="primary"
-                      variant="contained"
-                      onClick={() => { console.log("read") }}
-                    >
-                      READ
-                  </Button>
+                    <TableCell>
+                      {!feedback.read &&
+                        <Button
+                          color="primary"
+                          variant="outlined"
+                          onClick={() => { props.handleConfirm(feedback.id) }}
+                        >
+                          Confirm AS Seen
+                          </Button>
+                      }
+
+                      {feedback.read &&
+                        "Confirmed"
+                      }
+
                     </TableCell>
                   </TableRow>
                 ))}

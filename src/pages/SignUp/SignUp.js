@@ -195,7 +195,7 @@ const SignUp = props => {
       role: 'trainer',
       age: 34,
       gender: 'male',
-      imageName: 'test.jpg',
+      imageName: 'images/trainer_lrbomm',
       password: formState.values.password,
       focus: formState.values.focus,
       description: formState.values.description,

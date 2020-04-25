@@ -158,7 +158,8 @@ let WorkoutSessionEdit = (props) => {
         touched: {},
         errors: {},
         trainerId: null,
-        workoutProgramId: 0
+        workoutProgramId: 0,
+        free: false
 
     })
 
@@ -422,7 +423,8 @@ let WorkoutSessionEdit = (props) => {
             cardioLevel: values.cardioLevel,
             imageName: values.imageName,
             //workoutProgramId: 4,
-            exerciseBaseIds: exerciseFulls
+            exerciseBaseIds: exerciseFulls,
+            free: (values.free === "true") ? true : false
         }
 
         let bodyCreate = {
@@ -433,7 +435,8 @@ let WorkoutSessionEdit = (props) => {
             muscleLevel: values.muscleLevel,
             cardioLevel: values.cardioLevel,
             imageName: values.imageName,
-            exerciseBaseIds: exerciseFulls
+            exerciseBaseIds: exerciseFulls,
+            free: (values.free === "true") ? true : false
         }
 
         if (id === undefined) {
@@ -514,6 +517,36 @@ let WorkoutSessionEdit = (props) => {
                                     variant="outlined"
                                     required
                                 />
+
+                                <TextField
+                                    className={classes.textField}
+                                    fullWidth
+                                    label="Free to use?"
+                                    margin="dense"
+                                    name="free"
+                                    onChange={handleChange}
+                                    required
+                                    select
+                                    // eslint-disable-next-line react/jsx-sort-props
+                                    SelectProps={{ native: true }}
+                                    value={values.free}
+                                    variant="outlined"
+                                >
+
+                                    <option
+                                        key={true}
+                                        value={true}
+                                    >
+                                        Yes
+                                    </option>
+                                    <option
+                                        key={false}
+                                        value={false}
+                                    >
+                                        Not today
+                                    </option>
+                                </TextField>
+
 
                                 <TextField
                                     className={classes.textField}
@@ -617,7 +650,6 @@ let WorkoutSessionEdit = (props) => {
                                         xs={12}
                                     >
                                         <TextField
-
                                             fullWidth
                                             label="Select Exercise"
                                             margin="dense"
